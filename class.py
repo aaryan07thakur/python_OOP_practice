@@ -31,6 +31,8 @@ class Atm:
                             3. Enter 3 to withdraw
                             4. Enter 4 to check balance
                             5. Enter 5 to exit
+                            6. Enter 6 to change the pin
+                            7. Enter 7 to get pin
         """)
             
             if user_input =="1":
@@ -43,14 +45,50 @@ class Atm:
                 self.check_balance()
             elif user_input=="5":
                 print("Thank you")
+            elif user_input=="6":
+                new_pin=input("Enter the new pin: ")
+                self.set_pin(new_pin)
+            elif user_input=="7":
+                print(f"your current pin is : {self.get_pin()}")
+            elif user_input=="8":
+                print("Thankyou!")
                 break
             else:
                 print("bye")
 
 
     def create_pin(self):
-        self.pin=input("create a pin: ")
-        print("your pin is created successfully")
+        while True:
+            pin = input("Create a 4-digit PIN: ")
+            if pin.isdigit() and len(pin) == 4:
+                self.pin = pin
+                print("Your PIN is created successfully.")
+                break
+            else:
+                print("Invalid PIN! Please enter a 4-digit number.")
+
+
+    def get_pin(self):
+        return self.pin
+    
+
+    def set_pin(self, newpin):
+        # Convert to string if not already, and check if it's digits only
+        if newpin.isdigit() and len(newpin)==4:
+            self.pin = newpin
+            print("Pin changed successfully.")
+        else:
+            print("Not allowed! Please enter integer numbers only for the pin.")
+
+
+
+
+    # def set_pin(self, newpin):
+    #     if type(newpin)==str:
+    #         self.pin=newpin
+    #         print("pin changed")
+    #     else:
+    #         print("Not allowed! please integer only for pin")
 
     def deposit(self):
         temp=input("Enter your pin: ")
