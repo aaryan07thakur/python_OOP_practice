@@ -1,0 +1,63 @@
+Encapsulation means putting data (like name, age) and the funciton that work on that data
+(like get_name, set_age) together inside one place (called class)
+
+hide real data from outside 
+and you give a safe way (methods) to use or change that data
+
+
+underscore(_) and doubleunderscore(__) is used to hide data or mark somethings as private in python
+
+
+
+Encapsulation in Python is like having a bank account system where your account balance (data)
+is kept private. You can't directly change your balance by accessing the account database. 
+Instead, the bank provides you with methods (functions) like deposit and withdraw to modify 
+your balance safely.
+
+Private Data (Balance): Your balance is stored securely. Direct access from outside is 
+not allowed, ensuring the data is protected from unauthorized changes.
+
+Public Methods (Deposit and Withdraw): These are the only ways to modify your balance. 
+They check if your requests (like withdrawing money) follow the rules 
+(e.g., you have enough balance) before allowing changes.
+
+
+
+
+Public Members= Public members are accessible from anywhere, 
+both inside and outside the class. These are the default members in Python.
+
+
+Protected members: Protected members are identified with a single underscore (_). 
+They are meant to be accessed only within the class or its subclasses.
+
+
+Protected Attribute (_age): This attribute is prefixed with a single underscore, 
+which by convention, suggests that it should be treated as a protected member. 
+It's not enforced by Python but indicates that it should not be accessed outside of this 
+class and its subclasses.
+
+Subclass: Here, a subclass inherits from Protected. Within this subclass, 
+we can still access the protected attribute _age.
+Method (display_age): This method within the subclass accesses the protected attribute and prints its value. 
+This shows that protected members can be accessed within the class and its subclasses.
+
+
+
+private members:Private members are identified with a double underscore (__) and cannot be accessed directly
+ from outside the class. Python uses name mangling to make private members inaccessible by renaming them 
+ internally.
+
+Note: Python's private and protected members can be accessed outside the class through python name mangling. 
+
+
+Private Attribute (__salary): This attribute is prefixed with two underscores, which makes it a private member.
+Python enforces privacy by name mangling, which means it renames the attribute in a way that makes 
+it hard to access from outside the class.
+
+Method (salary): This public method provides the only way to access the private attribute from outside the 
+class. It safely returns the value of __salary.
+
+Direct Access Attempt: Trying to access the private attribute directly (obj.__salary) will result in an
+AttributeError, showing that direct access is blocked. This is Python's way of enforcing encapsulation at a
+language level.
